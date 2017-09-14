@@ -51,6 +51,7 @@ class LoadArmature(bpy.types.Operator):
                         armature_object.select = True
                         bpy.ops.object.join()
                         bpy.ops.object.mode_set(mode = last_mode)
+                        bpy.data.armatures.remove(armature, do_unlink = True)
         
         else:
             self.report({"ERROR"}, "Failed")

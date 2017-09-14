@@ -15,7 +15,12 @@ class ArmatureSnippetsPannel(bpy.types.Panel):
     bl_label = "Armature snippets"
     bl_space_type = "VIEW_3D"
     bl_region_type = "TOOLS"
-    bl_category = "Create"
+    bl_category = "Tools"
+    
+    @classmethod
+    def pool(cls, context):
+        if context.actve_object:
+            return context.active_object.mode != "SCULPT"
     
     def draw(self, context):
         layout = self.layout
